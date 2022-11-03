@@ -13,14 +13,10 @@ use App\Http\Controllers\ClienteControlador;
 |
 */
 
-Route::get('/', function () {
-    return view('clientes');
-});
-    
-
-Route::get('/novo','App\Http\Controllers\ClienteControlador@create');
+Route::get('/novocliente','App\Http\Controllers\ClienteControlador@create');
 Route::get('/','App\Http\Controllers\ClienteControlador@index');
-//Route::get('/','App\Http\Controllers\ClienteControlador@store');
+Route::post('/cliente','App\Http\Controllers\ClienteControlador@store');
+
 
  
 

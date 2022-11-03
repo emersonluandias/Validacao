@@ -3,6 +3,10 @@
         <title>Cadastro de Clientes</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <style>
+            body { padding: 20px; }
+
+        </style>   
     </head>
 <body>
     <main role="main">
@@ -14,7 +18,7 @@
         </div>
         <div class="card-body">
     <form action="/cliente" method="POST">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    @csrf
         <div class="form-group">
             <label for="nome">Nome do Cliente</label>
             <input type="text" class="form-control" name="nome"  id="nome" placeholder="Nome do Cliente">
@@ -25,26 +29,22 @@
         </div>
 
         <div class="form-group">
-            <label for="nome">Endereco do Cliente</label>
-            <input type="text" class="form-control" name="endereço"  id="endereco" placeholder="Endereco">
+                    <label for="nome">Endereco do Cliente</label>
+                    <input type="text" class="form-control" name="endereco"  id="endereco" placeholder="Endereco">
         </div>
-        
-    
         <div class="form-group">
-            <label for="endereco">Email</label>
-    <!--
-            <input type="email" class="form-control" name="email"  id="email" placeholder="E-mail do Cliente">
-    -->
-            <input type="text" class="form-control" name="email"  id="email" placeholder="E-mail do Cliente">
+            <label for="nome">Endereco de email</label>
+            <input type="text" class="form-control" name="email"  id="email" placeholder="Email">
         </div>
+    
                 <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                <button type="reset" class="btn btn-danger btn-sm">Cancelar</button>
-    </form>
-                    </div>
-                </div>
+                <button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
+</div>
+</main>
     <script src="{{ asset('js/app.js')}}" type="text/javascript"></script>
 </body>
 </html>

@@ -41,8 +41,8 @@
 
           </div>
         </div>
-
-
+        <div class="card-footer">
+          <a href="/novocliente" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
       </div>
     </div>
   </main>
