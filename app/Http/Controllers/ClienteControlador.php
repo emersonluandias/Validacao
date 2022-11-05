@@ -36,6 +36,36 @@ class ClienteControlador extends Controller
      */
     public function store(Request $request)
     {
+     $regras=[
+        'nome'=>'required|min:3|max:40',
+        'idade'=>'required|max:3',
+        'endereco'=>'required|min:6',
+        'email'=>'required|email|min:6|unique:clientes'
+      ];
+      $mensagens =[
+        // required usado pra todos campos :atribute.
+        'required' => 'o atributo :attribute não pode esta em branco',
+        'nome.required' =>'Digite seu nome ',
+        'nome.min' =>'É necessario no minimo 3 caacteres',
+        'nome.max' =>'É necessario no mamixo 40 caacteres',
+        'idade.required' =>'Digite sua idade',
+        'idade.max' =>'A idade tem no maximo 3 digitos',
+        'endereco.required' =>'Digite um endereço',
+        'endereco.min' =>'o endereço nâo valido minimo 6 caracteres',
+        'email.required' =>'Digite um email',
+        'email.email' =>'o email é requerido no formado valido',
+        'email.min' =>'o email é requerido com no minimo 6 caracteres',
+       'email.unique' =>'email já esta sendo utilizado,por favor digite um novo'
+
+      ];
+     $request->validate($regras,$mensagens);
+     /* $request->validate([
+        'nome'=>'required|min:3|max:40',
+        'idade'=>'required|max:3',
+        'endereco'=>'required|min:6',
+        'email'=>'required|email|min:6|unique:clientes'
+      ]);
+*/
       $cliente = new Cliente();
       $cliente->nome = $request->input('nome');
       $cliente->idade = $request->input('idade');
